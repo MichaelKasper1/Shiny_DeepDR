@@ -1,0 +1,13 @@
+name: shinyDeepDR_v20230224_sep
+title: shinyDeepDR_v20230224_sep
+username:
+account: chenlabgccri
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8400269
+bundleId: 6902629
+url: https://chenlabgccri.shinyapps.io/shinyDeepDR_v20230224_sep/
+when: 1677683344.50251
+lastSyncTime: 1677683344.50252
+asMultiple: FALSE
+asStatic: FALSE

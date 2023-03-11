@@ -1,0 +1,24 @@
+<div id="helptab1">
+    <h1 style="text-align: center;">Find Sample</h1>
+    <hr />
+  <p style="text-align: left;"><strong>Module 2 (Find Sample): Finding a cancer sample with similar genomic features to those of a query sample</strong></p>
+  <p style="text-align: left;"><strong>Module 2</strong> searches for cell lines in the CCLE or tumors of TCGA that have similar genomic features to the query sample and display their drug responses. It cross-references to real and DeepDR-predicted drug response data of top similar CCLE samples, or predicted data of top similar TCGA samples. To start  the analysis, the user should upload the genomic data of the query sample (<strong>mutations alone, expression alone, or mutations plus expression</strong>), and select the sample type to analyze (cell line: CCLE; tumor: TCGA). After specifying the file location(s), the user should click on the purple  button <font color="purple"> <strong>[SUBMIT]</strong></font> to start the analysis. Alternatively, the user can test our tool using a built-in example sample by simply clicking on the blue icon <font color="blue"> <strong>[RUN EXAMPLE]</strong></font>.</p>
+<p style="text-align:left;"><em> <u><strong>Input Data Format</strong></u> </em></p>
+    <p> Please visit the "Input Data Format" help page for detailed information  regarding data preparation and downloading example files.</p>
+  
+
+<p style="text-align:left;"><em><u> <strong>Similarity Analysis based on genomic profiles</strong></u></em></p>
+<ul><li><strong>Mutations:</strong> Given a query sample and a specified sample type, our tool searches through all 704 cell lines of the CCLE or 9,059 tumors of TCGA with paired mutation and expression data. The similarity between the query sample and samples in our database is measured and ranked by the Jaccard index for mutated genes among 18,281 genes.</li>
+	  <li><strong>Gene expression:</strong> &nbsp;The similarity between the query sample and samples in our database is measured and ranked by the Pearson correlation coefficients among 15,363 genes for gene expression data.</li>
+		  <li><strong>Paired mutation and expression:</strong> &nbsp;When sample-paired data are uploaded, the tool averages the ranks of mutations and gene expression to determine the overall ranking of ranks CCLE or TCGA samples.&nbsp;</li>
+
+</ul>
+	
+<p style="text-align:left;"><em><u> <strong>Outputs</strong></u></em></p>
+	<ul>
+	<li><strong>Panel 2-1:</strong> Similar cell lines/tumors to the query sample identified based on Jaccard index (mutations) and/or Pearson correlation (gene expression) and corresponding clinical information.&nbsp;</li>
+	  <li><strong>Panel 2-2:</strong> Network of similar samples and their top effective drugs.&nbsp; </li>
+	  <p></p>
+	Please click on the question mark of each figure and table to see the legends.
+<hr>
+</div>

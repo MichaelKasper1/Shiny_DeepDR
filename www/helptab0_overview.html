@@ -1,0 +1,34 @@
+<div id="helptab1">
+    <h1 style="text-align: center;">Overview</h1>
+    <hr />
+    <p style="text-align: left;"><strong>DeepDR</strong> is a deep learning model that predicts drug sensitivity using mutation and/or gene expression profiles in a cancer sample (cell line or tumor) (<a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank">Chiu <em>et al</em>. <em>BMC Medical Genomics</em> 2019</a>).&nbsp;<strong>shinyDeepDR</strong> is an R Shiny app that provides a user-friendly interface to DeepDR with no requirement of programming skills. shinyDeepDR runs two main analysis modules with user's uploaded genomic data,&nbsp;<strong>Module 1: Find Dr</strong><strong>ug (core module)&nbsp;</strong>and <strong>Module 2: Find Sample</strong>. Here we provide an overview of our tool. For details regarding the input data format or each module, please visit corresponding help pages or click on the question mark at each input/output section.&nbsp;&nbsp;</p>
+<p style="text-align:left;"><em> <u><strong>DeepDR: Deep Learning-Based Prediction of Drug Response of Tumors from Integrated Genomic Profiles</strong></u></em></p>
+<p style="text-align:left;"><em>  </em></p>
+  <p>Given a pair of mutation and expression profiles, DeepDR predicts IC50 values of 265 FDA-approved or investigational anti-cancer compounds. It contains three deep neural networks:</p>
+  <ul>
+	<li>A mutation encoder pre-trained using a large pan-cancer dataset (The Cancer Genome Atlas; TCGA) to abstract core representations of high-dimension mutation data</li>
+	<li>A pre-trained expression encoder</li>
+	<li>Drug response predictor network integrating the first two subnetworks.</li>
+  </ul>
+  <p>In the publication of DeepDR, we have systematically evaluated the prediction performance using  hold-out cancer cell lines by multiple measures, including mean squared error in drug response and per-cancer cell line correlation coefficients between real and predicted data (Pearson and Spearman correlation coefficients, 0.70-0.96 and 0.62-0.95, respectively). DeepDR achieved marked improvement over conventional methods, including linear regression, support vector machine, and alternative deep learning models trained either with cell lines alone without transferring features learned from tumors, or using principal components to replace encoder outputs. Furthermore, we validated the predictions by real-world clinical data of corresponding patients, such as an approved estrogen receptor agonist (tamoxifen) for breast cancer, approved drugs targeting the EGFR mutations (afatinib and gefitinib) for non-small cell lung cancer, and an investigational compound, CX-5461, for treating hematopoietic malignancies. Please refer to the publication of DeepDR (<a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank">Chiu <em>et al</em>. <em>BMC Medical Genomics</em> 2019</a>) for more details regarding model design, validation, and applications. </p>
+  <p>We also built mutation-alone and expression-alone models for samples with only one omics data available.&nbsp; &nbsp;</p>
+	
+<p>&nbsp;</p>
+<img src="DeepDR_overview.png" height="800">
+  <p>&nbsp;</p>
+	
+	
+	<p style="text-align:left;"><em> <u><strong>shinyDeepDR: Implementation of DeepDR by a User-Friendly R Shiny Framework</strong></u></em></p>
+
+  <p style="text-align:left;"><em><strong>Module 1: Find Drug</strong> that is predicted to be effective in inhibiting the query sample</em></p>
+<p style="text-align: left;">Module 1 runs DeepDR to predict the query sample’s response to 265 anti-cancer compounds. The app provides an intuitive user interface to interactively visualize, search, and filter all prediction results, as well as detailed annotations&nbsp;of&nbsp;individual compounds.&nbsp;</p>
+  <p style="text-align:left;"><em><strong>Module 2: Find Sample </strong>that shares similar genomic features to the query sample </em></p>
+  <p style="text-align: left;">Module 2 searches for cell lines in the CCLE or tumors of TCGA that have similar genomic features to those of the query sample and examines their real or predicted drug responses. We incorporated real drug response data of pan-cancer cell lines from the Genomics of Drug Sensitivity in Cancer (GDSC; 265 compounds x 704 cell lines) and prediction by&nbsp;our DeepDR model, as well as predicted drug responses  of pan-cancer tumors from our publication of DeepDR (265 compounds x 9,059 tumors).</p>
+	  <p>&nbsp;</p>
+
+    
+	<p style="text-align:left;"></p>
+  <img src="shinyDeepDR_overview.png" height="500">
+	
+    <hr>
+</div>

@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{ headContent() }}
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>shinyDeepDR</title>
+        <link href="assets/img/favicon.ico" rel="icon">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <link href="assets/css/magnific-popup.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
+            <!-- Load Tempalte CSS -->
+        <link rel="stylesheet" href="assets/css/templatemo.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+    </head>
+    <body>
+        <script>
+
+            //run on body load, change the style of the file input
+            /*function file_change () {
+                document.getElementById('mut_upload').style.removeProperty("top");
+                document.getElementById('mut_upload').style.removeProperty("left");
+            }   */
+
+        //function to hide and show individual pages
+        function SwitchTo(num){
+                if(num == 1){
+                   $('#indexdiv').show().trigger('shown');
+                   $('#aboutdiv').hide().trigger('hidden');
+                   $('#Predictions').hide().trigger('hidden');
+                   $('#nearestn').hide().trigger('hidden');
+                   $('#contactdiv').hide().trigger('hidden');
+                }else if (num == 2){
+                    $('#indexdiv').hide().trigger('hidden');
+                   $('#nearestn').show().trigger('shown');
+                   $('#Predictions').hide().trigger('hidden');
+                   $('#aboutdiv').hide().trigger('hidden');
+                   $('#contactdiv').hide().trigger('hidden');
+                }else if (num == 3){
+                    $('#indexdiv').hide().trigger('hidden');
+                   $('#nearestn').hide().trigger('hidden');
+                   $('#Predictions').show().trigger('shown');
+                   $('#aboutdiv').hide().trigger('hidden');
+                   $('#contactdiv').hide().trigger('hidden');
+                }else if (num == 4){
+                    $('#indexdiv').hide().trigger('hidden');
+                   $('#Predictions').hide().trigger('hidden');
+                   $('#nearestn').hide().trigger('hidden');
+                   $('#aboutdiv').show().trigger('shown');
+                   $('#contactdiv').hide().trigger('hidden');
+                }else{
+                    $('#indexdiv').hide().trigger('hidden');
+                   $('#aboutdiv').hide().trigger('hidden');
+                   $('#Predictions').hide().trigger('hidden');
+                   $('#nearestn').hide().trigger('hidden');
+                   $('#contactdiv').show().trigger('shown');
+                }
+            }
+        
+            function Consent(){
+                $('#privacybanner').fadeToggle();
+            }
+
+        function SwitchTo2(num){
+            if(num == 1){
+
+                if(document.getElementById("mutandexp").style.display == "none"){
+                    $('#mutandexp').fadeToggle();
+                    $('#mutandexp').show().trigger('shown');
+                    $('#mut').hide().trigger('hidden');
+                    $('#exp').hide().trigger('hidden');
+                }
+                
+                if(document.getElementById("mutandexpshow").style.display == "none"){
+                    $('#mutandexpshow').fadeToggle();
+                    $('#mutandexpshow').show().trigger('shown');
+                    $('#mutshow').hide().trigger('hidden');
+                    $('#expshow').hide().trigger('hidden');
+                }
+
+               if(document.getElementById("model1").style.display == "none"){
+                    $('#model1').fadeToggle();
+                    $('#model1').show().trigger('shown');
+                    $('#model2').hide().trigger('hidden');
+                    $('#model3').hide().trigger('hidden');
+                }
+               
+
+               document.getElementById("mutandexpbutton").classList.add('active');
+               document.getElementById("mutbutton").classList.remove('active');
+               document.getElementById("expbutton").classList.remove('active');
+            }else if (num == 2){
+
+
+
+                if(document.getElementById("mut").style.display == "none"){
+                    $('#mut').fadeToggle();
+                    $('#mut').show().trigger('shown');
+                    $('#mutandexp').hide().trigger('hidden');
+                    $('#exp').hide().trigger('hidden');
+                }
+
+                if(document.getElementById("mutshow").style.display == "none"){
+                    $('#mutshow').fadeToggle();
+                    $('#mutshow').show().trigger('shown');
+                    $('#mutandexpshow').hide().trigger('hidden');
+                    $('#expshow').hide().trigger('hidden');
+                }
+                
+                if(document.getElementById("model2").style.display == "none"){
+                    $('#model2').fadeToggle();
+                    $('#model2').show().trigger('shown');
+                    $('#model1').hide().trigger('hidden');
+                    $('#model3').hide().trigger('hidden');
+                }
+               
+
+               document.getElementById("mutbutton").classList.add('active');
+               document.getElementById("mutandexpbutton").classList.remove('active');
+               document.getElementById("expbutton").classList.remove('active');
+            }else {
+
+                if(document.getElementById("exp").style.display == "none"){
+                    $('#exp').fadeToggle();
+                    $('#exp').show().trigger('shown');
+                    $('#mutandexp').hide().trigger('hidden');
+                    $('#mut').hide().trigger('hidden');
+                }
+
+                if(document.getElementById("expshow").style.display == "none"){
+                    $('#expshow').fadeToggle();
+                    $('#expshow').show().trigger('shown');
+                    $('#mutandexpshow').hide().trigger('hidden');
+                    $('#mutshow').hide().trigger('hidden');
+                }
+
+                if(document.getElementById("model3").style.display == "none"){
+                    $('#model3').fadeToggle();
+                    $('#model3').show().trigger('shown');
+                    $('#model1').hide().trigger('hidden');
+                    $('#model2').hide().trigger('hidden');
+                }
+
+               
+
+               document.getElementById("expbutton").classList.add('active');
+               document.getElementById("mutandexpbutton").classList.remove('active');
+               document.getElementById("mutbutton").classList.remove('active');
+            }            
+        }
+
+        function SwitchTo3(num){
+            if(num == 1){
+
+                if(document.getElementById("mutandexp2").style.display == "none"){
+                    $('#mutandexp2').fadeToggle();
+                    $('#mutandexp2').show().trigger('shown');
+                    $('#mut2').hide().trigger('hidden');
+                    $('#exp2').hide().trigger('hidden');
+                }
+                
+                if(document.getElementById("mutandexpshow2").style.display == "none"){
+                    $('#mutandexpshow2').fadeToggle();
+                    $('#mutandexpshow2').show().trigger('shown');
+                    $('#mutshow2').hide().trigger('hidden');
+                    $('#expshow2').hide().trigger('hidden');
+                }
+
+               if(document.getElementById("model1n").style.display == "none"){
+                    $('#model1n').fadeToggle();
+                    $('#model1n').show().trigger('shown');
+                    $('#model2n').hide().trigger('hidden');
+                    $('#model3n').hide().trigger('hidden');
+                }
+               
+
+               document.getElementById("mutandexpbutton2").classList.add('active');
+               document.getElementById("mutbutton2").classList.remove('active');
+               document.getElementById("expbutton2").classList.remove('active');
+            }else if (num == 2){
+
+
+
+                if(document.getElementById("mut2").style.display == "none"){
+                    $('#mut2').fadeToggle();
+                    $('#mut2').show().trigger('shown');
+                    $('#mutandexp2').hide().trigger('hidden');
+                    $('#exp2').hide().trigger('hidden');
+                }
+
+                if(document.getElementById("mutshow2").style.display == "none"){
+                    $('#mutshow2').fadeToggle();
+                    $('#mutshow2').show().trigger('shown');
+                    $('#mutandexpshow2').hide().trigger('hidden');
+                    $('#expshow2').hide().trigger('hidden');
+                }
+
+                if(document.getElementById("model2n").style.display == "none"){
+                    $('#model2n').fadeToggle();
+                    $('#model2n').show().trigger('shown');
+                    $('#model1n').hide().trigger('hidden');
+                    $('#model3n').hide().trigger('hidden');
+                }
+               
+
+               document.getElementById("mutbutton2").classList.add('active');
+               document.getElementById("mutandexpbutton2").classList.remove('active');
+               document.getElementById("expbutton2").classList.remove('active');
+            }else {
+
+                if(document.getElementById("exp2").style.display == "none"){
+                    $('#exp2').fadeToggle();
+                    $('#exp2').show().trigger('shown');
+                    $('#mutandexp2').hide().trigger('hidden');
+                    $('#mut2').hide().trigger('hidden');
+                }
+
+                if(document.getElementById("expshow2").style.display == "none"){
+                    $('#expshow2').fadeToggle();
+                    $('#expshow2').show().trigger('shown');
+                    $('#mutandexpshow2').hide().trigger('hidden');
+                    $('#mutshow2').hide().trigger('hidden');
+                }
+
+                if(document.getElementById("model3n").style.display == "none"){
+                    $('#model3n').fadeToggle();
+                    $('#model3n').show().trigger('shown');
+                    $('#model1n').hide().trigger('hidden');
+                    $('#model2n').hide().trigger('hidden');
+                }
+
+               
+
+               document.getElementById("expbutton2").classList.add('active');
+               document.getElementById("mutandexpbutton2").classList.remove('active');
+               document.getElementById("mutbutton2").classList.remove('active');
+            }            
+        }
+
+        </script>
+
+        <!-- HOME PAGE-->
+        <div id="indexdiv">
+        <header id="header" class="fixed-top d-flex align-items-center">
+            <div class="container d-flex align-items-center">
+            <div class="logo me-auto">
+                <h1><a href="#" onclick="SwitchTo(1)">shinyDeep</a><a href="#" style="color: blueviolet;">DR</a></h1>
+            </div>
+                <nav id="navbar" class="navbar order-last order-lg-0 m-auto">
+                    <ul>
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(1)" style="text-decoration-line: underline; text-decoration-color: blueviolet; text-decoration-thickness: 0.5vh;">Home</a>
+                        </li> 
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(3)">Find Drug</a>
+                        </li>  
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(2)">Find Sample</a>
+                        </li>
+                        <li class= "dropdown"><a href="#"><span>Help</span><i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                              <li><a class="nav-link" href="#" onclick = "SwitchTo(4)">Overviews</a></li>
+                              <li>{{ helptab3p1 }}</li>
+                              <li>{{ helptab2p1 }}</li>
+                              <li>{{ helptab1p1 }}</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(5)">About</a>
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            </div>
+            
+
+        </header>
+        
+
+        <!-- title section -->
+        <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="container text-center text-md-left" data-aos="fade-up">
+            <h1>Welcome to <span>shinyDeepDR</span></h1>
+            <h2>Deep Learning Prediction of Cancer Drug Response Using Mutation and Gene Expression Data</h2>
+            <a href="#function" class="btn-get-started scrollto">Explore</a>
+        </div>
+        </section>
+
+        <br>
+        <br>
+
+        <div class="section-title">
+            <h2 style="font-size: 36px; color:blueviolet;"><b>Drug Screening and Pan-Cancer Genomics Datasets</b></h2>
+            <br>
+        </div>
+        <section id="counts" class="counts">
+            <div class="container">
+    
+            <div class="row">
+    
+                <div class="col-lg-4">
+                <div class="count-box">
+                    <i class="bi bi-bandaid"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="265" data-purecounter-duration="2" class="purecounter" style="padding-top: 50px;"></span>
+                    <p>Anti-Cancer Compounds</p>
+                </div>
+                </div>
+    
+                <div class="col-lg-4">
+                <div class="count-box">
+                    <i class="bi bi-disc"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="704" data-purecounter-duration="2" class="purecounter" style="padding-top: 50px;"></span>
+                    <p>Cell Lines</p>
+                </div>
+                </div>
+    
+                <div class="col-lg-4">
+                <div class="count-box">
+                    <i class="bi bi-heart-fill"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="9059" data-purecounter-duration="2" class="purecounter" style="padding-top: 50px;"></span>
+                    <p>Tumors</p>
+                </div>
+                </div>
+    
+            </div>
+    
+            </div>
+        </section> 
+
+        <div class="section-title">
+            <h2 style="font-size: 36px; color:blueviolet;"><b>DeepDR Model Usage</b></h2>
+            <br>
+        </div>
+        <section id="counts" class="counts">
+            <div class="container">
+    
+            <div class="row">
+    
+                <div class="col-lg-6">
+                <div class="count-box">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="16000" data-purecounter-duration="2" class="purecounter" style="padding-top: 50px;"></span>
+                    <p>Article Accesses</p>
+                </div>
+                </div>
+    
+                <div class="col-lg-6">
+                <div class="count-box">
+                    <i class="bi bi-chat-left-quote"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="2" class="purecounter" style="padding-top: 50px;"></span>
+                    <p>Article Citations</p>
+                </div>
+                </div>
+    
+            </div>
+    
+            </div>
+        </section> 
+
+        <!-- Start Recent Work -->
+    <section id="function" class="py-5 mb-5">
+        <div class="container">
+            <div class="recent-work-header row text-center pb-5">
+                <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5">Explore Functions</h2>
+            </div>
+            <div class="row gy-5 g-lg-5 mb-4">
+
+
+                <!-- Start Recent Work -->
+                <div class="col-md-6 mb-3">
+                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden" onclick="SwitchTo(3)">
+                        <img class="recent-work-img card-img" src="./assets/img/network.jpg" alt="Card image">
+                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
+                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
+                                <h3 class="card-title light-300">Predict Drug Responses (Find Drug)</h3>
+                                <p class="card-text">Use our deep learning model (DeepDR) to predict the responses to 265 anti-cancer compounds using mutation and/or gene expression profiles.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!-- End Recent Work -->
+
+                <!-- Start Recent Work -->
+                <div class="col-md-6 mb-3">
+                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden" onclick="SwitchTo(2)">
+                        <img class="recent-work-img card-img" src="./assets/img/genelist.jpg" alt="Card image">
+                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
+                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
+                                <h3 class="card-title light-300">Find Similar Samples (Find Sample)</h3>
+                                <p class="card-text">Identify pan-cancer cell lines and tumors that share similar genomic features to those of the query sample and examine their treatment responses.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!-- End Recent Work -->
+
+                
+
+            </div>
+        </div>
+    </section>
+
+        <footer id="footer" style="box-shadow: 0px 0px 10px 0px rgba(1, 1, 82, 0.4); display: flex;">
+            <div class="container d-md-flex" style="padding-top: 10px; padding-bottom: 3px;">
+                <div class="text-md-left" style="width: 50%; float: left;">
+                    <a href="https://www.chiu-lab.org/" target="_blank"> <img src="pitt_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"></a>
+
+                    <!-- <h4 style="font-size: 15px;">Greehey Children's Cancer Research Institute</h4> -->
+                </div>
+                
+                <div class="text-center" style="width: 110%;">
+                    <h4 style="font-size: 12px;"><strong>Citation:</strong> 
+                        <u>DeepDR model:</u> Chiu et al. Predicting drug response of tumors from integrated genomic profiles by deep neural networks. <a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank"><em>BMC Medical Genomics.</em></a> 2019.
+                     <u>Web Server:</u> Wang et al. shinyDeepDR: a user-friendly R Shiny app for predicting anti-cancer drug response using deep learning. In review. <u>Version: Feb. 2023</u> 
+
+                     <h4 style="font-size: 12px; ">Contact:  <a href = "mailto:YUC250@pitt.edu">Yu-Chiao Chiu, Ph.D. </a> & <a href = "mailto:Cheny8@uthscsa.edu">Yidong Chen, Ph.D. </a> </h4>
+            
+                </div>
+                <div class="text-md-right" style="width: 50%; float: left; padding-left: 5%;">
+                    <a href="https://gccri.uthscsa.edu/lab/chen/" target="_blank"> <img src="uthsa_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"> </a>
+                 <!--<h4 style="font-size: 15px;">Pittsburgh University</h4> -->
+               </div>
+            </div>
+ 
+        </footer>
+
+        <!-- End of Title Section-->
+
+        </div>
+        <!-- End of Home Page -->
+
+     
+        
+
+     
+       <!--Predictions Page-->
+       <div id="Predictions" style="display: none;">
+       
+        <header id="header" class="fixed-top d-flex align-items-center">
+            <div class="container d-flex align-items-center">
+            <div class="logo me-auto">
+                <h1><a href="#" onclick="SwitchTo(1)">shinyDeep</a><a href="#" style="color: blueviolet;">DR</a></h1>
+            </div>
+                <nav id="navbar" class="navbar order-last order-lg-0 m-auto">
+                    <ul>
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(1)">Home</a> 
+                        </li> 
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(3)" style="text-decoration-line: underline; text-decoration-color: blueviolet; text-decoration-thickness: 0.5vh;">Find Drug</a>
+                        </li>  
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(2)">Find Sample</a>
+                        </li>
+                        <li class= "dropdown"><a href="#"><span>Help</span><i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                              <li><a class="nav-link" href="#" onclick = "SwitchTo(4)">Overviews</a></li>
+                              <li>{{ helptab3p2 }}</li>
+                              <li>{{ helptab2p2 }}</li>
+                              <li>{{ helptab1p2 }}</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(5)">About</a>
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            </div>
+            
+
+        </header>
+    
+       <!-- ======== predict-section start ======== -->
+     <section id="predict">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="banner-vertical-center-work container text-light d-flex justify-content-center align-items-center py-5 p-0">
+              <div class="banner-content col-lg-8 col-12 m-lg-auto text-center">
+                  <h1 class="banner-heading h2 display-3 pb-5 semi-bold-600 typo-space-line-center" style="color:darkviolet; font-weight: bold;">Find Drug</h1>
+                  <h3 class="h4 pb-2 regular-400" style="color: blueviolet;">Predict and Visualize Responses to 265 Anti-Cancer Drugs</h3>
+                  <p class="banner-body pb-2 light-300" style="color: black;">
+                      Use the DeepDR model to predict a query sample’s response to 265 anti-cancer drugs. Three prebuilt models are implemented for mutation data alone, gene expression data alone, and both. DeepDR has a transfer learning design that incorporates features of tumors and cell lines, and is applicable to predict both sample types. Drug responses are represented by IC50 (in log(uM)) values, where a more negative value denotes a stronger inhibitory effect.
+                  </p>
+                  {{help_input1}}
+              </div>
+          </div>
+
+          <div class="row justify-content-center my-5">
+              <div class="filter-btns shadow-md rounded-pill text-center col-auto">
+                  <a id="mutandexpbutton" class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4 active" onclick="SwitchTo2(1)" >Mutation & Expression</a>
+                  <a id="mutbutton" class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" onclick="SwitchTo2(2)" >Mutation</a>
+                  <a id="expbutton" class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" onclick="SwitchTo2(3)" >Expression</a>
+              </div>
+          </div>
+
+          <div id="mutandexp" class="row" style="margin: 0 auto; text-align: center;">
+              <div class="section-title">
+                  <h2 style="font-size: 36px; color:blueviolet;"><b>Upload (human data only)</b></h2>
+                  <br>
+              </div>
+              <div style="width: 70%; height: 5px; background-color: blueviolet; margin: auto;">
+              </div>
+              <div class="row justify-content-center" style="padding-top: 2vh;">
+                  <div class="col-md-6">
+                      <h6 style="text-align: center;">Upload Mutation Data (MAF file)</h6>
+                      {{ mut_upload.p }}
+                  </div>
+                  <div class="col-md-6">
+                      <h6 style="text-align: center;">Upload Expression Data (txt file)</h6>
+                      {{ exp_upload.p }} 
+                  </div>   
+              </div>
+              <div class="row justify-content-center" style="padding-top: 2vh;">
+                  <div class="col-md-6">
+                      <h6 style="text-align: center;">Or Input a List of Mutated Genes</h6>
+                      {{ gene_list.p }}
+                  </div>
+                  <div class="col-md-6">
+                      <h6 style="text-align: center;">Select the Options below for Expression</h6>
+                      <div style="padding-top: 10%; font-family: 'Open Sans', sans-serif;">
+                          {{ exp_type.p }} 
+                      </div>
+                      <div style="padding-top: 5%; font-family: 'Open Sans', sans-serif;">
+                          {{ log_transform.p }}
+                      </div>
+                  </div>   
+              </div>
+              <div class="row" style="text-align: center; font-family: 'Open Sans', sans-serif; padding-top: 3%;">
+                <h6 style="text-align: center;">Select Sample Type</h6>
+                {{ cell_type.p }}
+            </div> 
+          </div>
+
+
+          
+          <div id="mut" class="row" style="display: none; margin: 0 auto; text-align: center;">
+              <div class="section-title">
+                  <h2 style="font-size: 36px; color:blueviolet;"><b>Upload (human data only)</b></h2>
+              </div>
+              <div style="width: 70%; height: 5px; background-color: blueviolet; margin: auto;">
+              </div>
+              <div class="row justify-content-center" style="padding-top: 2vh;">
+                  <div class="col-md-6">
+                      <h6 style="text-align: center;">Upload Mutation Data</h6>
+                      {{ mut_upload2.p }}
+                  </div> 
+              </div>
+              <div class="row justify-content-center" style="padding-top: 2vh;">
+                  <div class="col-md-6">
+                      <h6 style="text-align: center;">Or Input a List of Mutated Genes</h6>
+                      {{ gene_list2.p }}
+                  </div> 
+              </div>
+              <div class="row" style="text-align: center; font-family: 'Open Sans', sans-serif; padding-top: 3%;">
+                <h6 style="text-align: center;">Select Sample Type</h6>
+                {{ cell_type2.p }}
+            </div> 
+          </div>
+          <div id="exp" class="row" style="display: none ; margin: 0 auto; text-align: center;">
+              <div class="section-title">
+                  <h2 style="font-size: 36px; color:blueviolet;"><b>Upload (human data only)</b></h2>
+              </div>
+              <div style="width: 70%; height: 5px; background-color: blueviolet; margin: auto;">
+              </div>
+              <div class="row justify-content-center" style="padding-top: 2vh;">
+                  <div class="col-md-6">
+                      <h6 style="text-align: center;">Upload Expression Data (txt file)</h6>
+                      {{ exp_upload2.p }} 
+                  </div>   
+              </div>
+              <div class="row justify-content-center" style="padding-top: 2vh;">
+                  <div class="col-md-6">
+                      <h6 style="text-align: center;">Select the Options below for Expression</h6>
+                      <div style="padding-top: 5%; font-family: 'Open Sans', sans-serif;">
+                          {{ exp_type2.p }} 
+                      </div>
+                      <div style="padding-top: 5%; padding-bottom: 5%; font-family: 'Open Sans', sans-serif;">
+                          {{ log_transform2.p }}
+                      </div>
+                  </div>   
+              </div>
+              <div class="row" style="text-align: center; font-family: 'Open Sans', sans-serif; padding-top: 3%;">
+                <h6 style="text-align: center;">Select Sample Type</h6>
+                {{ cell_type3.p }}
+            </div>
+              <br>   
+          </div>
+              
+              
+        </div>
+        <br>
+        <div id="model1" class="row">    
+            <div class="col-md-6" style="text-align: center;">
+                {{ submitexample.p }}
+            </div> 
+            <div class="col-md-6" style="text-align: center;">
+                {{ submitmodel.p }}
+            </div>    
+          <br>
+          <br>
+          </div> 
+          <div id="model2" class="row" style="display: none;">    
+            <div class="col-md-6" style="text-align: center;">
+                {{ submitexample2.p }}
+            </div>
+            <div class="col-md-6" style="text-align: center;">
+                {{ submitmodel2.p }}
+            </div>    
+            <br>
+            <br>
+            </div> 
+            <div id="model3" class="row" style="display: none;">    
+                <div class="col-md-6" style="text-align: center;">
+                    {{ submitexample3.p }}
+                </div> 
+                <div class="col-md-6" style="text-align: center;">
+                    {{ submitmodel3.p }}
+                </div>    
+                <br>
+                <br>
+                </div> 
+      <br>
+      <br>
+      </div>
+    </section>
+    <!--mutation and expression division display-->
+    <div id="mutandexpshow">
+        <section class="bg-light py-5">
+            <div class="feature-work container my-4">
+                <div class="row d-flex d-flex align-items-center">
+                    <div class="col-lg-12">
+                        <h3 class="feature-work-title h4 text-muted light-300">Results</h3>
+                        <h1 class="feature-work-heading h2 py-3 semi-bold-600">Mutation and Expression</h1>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+        </section>
+        <section class="bg-light">
+            <div class="container">
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-1</b>{{ pdboth1 }}</h2>
+                    
+                </div>
+                <h5>Predicted IC50 values across 265 drugs and annotations</h5>
+                <div class="row" style="height: 500px; overflow-y: scroll;">
+                    {{ pd.table.both }}
+                </div>
+                <br>
+                
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-2</b>{{ pdboth2 }}</h2>
+                    
+                </div>
+                <h5>Waterfall plot of predicted IC50 values acorss 265 drugs</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.waterfall.both }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-3</b>{{ pdboth3 }}</h2>
+                    
+                </div>
+                   <div class="row">
+                  
+                        <h5>2D structure of the compound selected from <strong>Panel 2-1</strong> and drug information</h5>
+               
+                </div>
+                <div class="row" style="height: 500px;">  
+                    <div class="col-md-6">
+                        {{ pd.structure.both }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ pd.drug.info.both }}
+                    </div>
+                </div>
+                <br>
+
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-4</b>{{ pdboth5 }}</h2>
+                    
+                </div>
+                <h5>IC50 values of the selected drug across all cell lines/tumors and the query sample</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.density.both }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-5</b>{{ pdboth6 }}</h2>
+                    
+                </div>
+                <h5>IC50 values of the selected drug across different cancer types</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.box.plot.both }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-6</b>{{ pdboth6sub }}</h2>
+                    
+                </div>
+                <h5>IC50 values of the selected drug across different cancer subtypes</h5>
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">{{ pd.cancer.select.both }}</div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.sub.box.plot.both }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-7</b>{{ pdboth7 }}</h2>
+                    
+                </div>
+                <h5>Network of the selected drug and its best-responding samples</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.network.both }}
+                </div>
+                <br>
+      
+              <br>
+              <br>
+            </div>
+              </section>
+    </div>
+
+    <!--mutation division display-->
+    <div id="mutshow" style="display: none;">
+        <section class="bg-light py-5">
+            <div class="feature-work container my-4">
+                <div class="row d-flex d-flex align-items-center">
+                    <div class="col-lg-12">
+                        <h3 class="feature-work-title h4 text-muted light-300">Results</h3>
+                        <h1 class="feature-work-heading h2 py-3 semi-bold-600">Mutation Only</h1>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+        </section>
+        <section class="bg-light">
+            <div class="container">
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-1</b>{{ pdmut1 }}</h2>
+                    
+                </div>
+                <h5>Predicted IC50 values across 265 drugs and annotations</h5>
+                <div class="row" style="height: 500px; overflow-y: scroll;">
+                    {{ pd.table.mut }}
+                </div>
+                <br>
+                
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-2</b>{{ pdmut2 }}</h2>
+                    
+                </div>
+                <h5>Waterfall plot of predicted IC50 values acorss 265 drugs</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.waterfall.mut }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-3</b>{{ pdboth3 }}</h2>
+                    
+                </div>
+                    <div class="row">
+                  
+                        <h5>2D structure of the compound selected from <strong>Panel 2-1</strong> and drug information</h5>
+               
+                </div>
+                <div class="row" style="height: 500px;">  
+                    <div class="col-md-6">
+                        {{ pd.structure.mut }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ pd.drug.info.mut }}
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-4</b>{{ pdmut5 }}</h2>
+                    
+                </div>
+                <h5>IC50 values of the selected drug across all cell lines/tumors and the query sample</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.density.mut }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-5</b>{{ pdmut6 }}</h2>
+                    
+                </div>
+                <h5>IC50 values of the selected drug across different cancer types</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.box.plot.mut }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-6</b>{{ pdmut6sub }}</h2>
+                    
+                </div>
+                <h5>IC50 values of the selected drug across different cancer subtypes</h5>
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">{{ pd.cancer.select.mut }}</div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.sub.box.plot.mut }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-7</b>{{ pdmut7 }}</h2>
+                    
+                </div>
+                <h5>Network of the selected drug and its best-responding samples</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.network.mut }}
+                </div>
+                <br>
+      
+              <br>
+              <br>
+            </div>
+              </section>
+    </div>
+    <!--expression division display-->
+    <div id="expshow" style="display: none;">
+        <section class="bg-light py-5">
+            <div class="feature-work container my-4">
+                <div class="row d-flex d-flex align-items-center">
+                    <div class="col-lg-12">
+                        <h3 class="feature-work-title h4 text-muted light-300">Results</h3>
+                        <h1 class="feature-work-heading h2 py-3 semi-bold-600">Expression Only</h1>
+                        </p>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+        </section>
+        <section class="bg-light">
+            <div class="container">
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-1</b>{{ pdexp1 }}</h2>
+                    
+                </div>
+                <h5>Predicted IC50 values across 265 drugs and annotations</h5>
+                <div class="row" style="height: 500px; overflow-y: scroll;">
+                    {{ pd.table.exp }}
+                </div>
+                <br>
+                
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-2</b>{{ pdexp2 }}</h2>
+                    
+                </div>
+                <h5>Waterfall plot of predicted IC50 values acorss 265 drugs</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.waterfall.exp }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-3</b>{{ pdboth3 }}</h2>
+                    
+                </div>
+                    <div class="row">
+                  
+                        <h5>2D structure of the compound selected from <strong>Panel 2-1</strong> and drug information</h5>
+               
+                </div>
+                <div class="row" style="height: 500px;">  
+                    <div class="col-md-6">
+                        {{ pd.structure.exp }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ pd.drug.info.exp }}
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-4</b>{{ pdexp5 }}</h2>
+                    
+                </div>
+                <h5>IC50 values of the selected drug across all cell lines/tumors and the query sample</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.density.exp }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-5</b>{{ pdexp6 }}</h2>
+                    
+                </div>
+                <h5>IC50 values of the selected drug across different cancer types</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.box.plot.exp }}
+                </div>
+                <br>
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-6</b>{{ pdexp6sub }}</h2>
+                    
+                </div>
+                <h5>IC50 values of the selected drug across different cancer subtypes</h5>
+                <br>
+                <div class="row" style="text-align: center;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">{{ pd.cancer.select.exp }}</div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.sub.box.plot.exp }}
+                </div>
+                <br>
+                
+
+                <div class="row">
+                    <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 1-7</b>{{ pdexp7 }}</h2>
+                    
+                </div>
+                <h5>Network of the selected drug and its best-responding samples</h5>
+                <div class="row" style="height: 500px;">  
+                    {{ pd.network.exp }}
+                </div>
+                <br>
+      
+              <br>
+              <br>
+            </div>
+              </section>
+    </div>
+
+        <footer id="footer" style="box-shadow: 0px 0px 10px 0px rgba(1, 1, 82, 0.4); display: flex;">
+            <div class="container d-md-flex" style="padding-top: 10px; padding-bottom: 3px;">
+                <div class="text-md-left" style="width: 50%; float: left;">
+                    <a href="https://www.chiu-lab.org/" target="_blank"> <img src="pitt_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"></a>
+                   
+
+                    <!-- <h4 style="font-size: 15px;">Greehey Children's Cancer Research Institute</h4> -->
+                </div>
+                
+                  <div class="text-center" style="width: 110%;">
+                    <h4 style="font-size: 12px;"><strong>Citation:</strong> 
+                        <u>DeepDR model:</u> Chiu et al. Predicting drug response of tumors from integrated genomic profiles by deep neural networks. <a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank"><em>BMC Medical Genomics.</em></a> 2019.
+                     <u>Web Server:</u> Wang et al. shinyDeepDR: a user-friendly R Shiny app for predicting anti-cancer drug response using deep learning. In review. <u>Version: Feb. 2023</u>
+
+                     <h4 style="font-size: 12px; ">Contact:  <a href = "mailto:YUC250@pitt.edu">Yu-Chiao Chiu, Ph.D. </a> & <a href = "mailto:Cheny8@uthscsa.edu">Yidong Chen, Ph.D. </a> </h4>
+            
+                  </div>
+
+                <div class="text-md-right" style="width: 50%; float: left; padding-left: 5%;">
+                    <a href="https://gccri.uthscsa.edu/lab/chen/" target="_blank"> <img src="uthsa_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"> </a>
+                 <!--h4 style="font-size: 15px;">Pittsburgh University</h4>-->
+               </div>
+            </div>
+ 
+        </footer>
+      </div>
+  
+
+    <!-- ======== predict-section end ======== -->
+
+
+       <!-- nearest neighbor-->
+       <div id="nearestn" style="display: none;">
+
+        <header id="header" class="fixed-top d-flex align-items-center">
+            <div class="container d-flex align-items-center">
+            <div class="logo me-auto">
+                <h1><a href="#" onclick="SwitchTo(1)">shinyDeep</a><a href="#" style="color: blueviolet;">DR</a></h1>
+            </div>
+                <nav id="navbar" class="navbar order-last order-lg-0 m-auto">
+                    <ul>
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(1)">Home</a>
+                        </li> 
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(3)">Find Drug</a>
+                        </li>  
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(2)" style="text-decoration-line: underline; text-decoration-color: blueviolet; text-decoration-thickness: 0.5vh;">Find Sample</a>
+                        </li>
+                        <li class= "dropdown"><a href="#"><span>Help</span><i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                              <li><a class="nav-link" href="#" onclick = "SwitchTo(4)">Overviews</a></li>
+                              <li>{{ helptab3p3 }}</li>
+                              <li>{{ helptab2p3 }}</li>
+                              <li>{{ helptab1p3 }}</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(5)">About</a>
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            </div>
+        </header>
+        
+        <br>
+        <br>
+        <!-- Introduction -->
+        <section id="nearestneighbor">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="banner-vertical-center-work container text-light d-flex justify-content-center align-items-center py-5 p-0">
+                    <div class="banner-content col-lg-8 col-12 m-lg-auto text-center">
+                        <h1 class="banner-heading h2 display-3 pb-5 semi-bold-600 typo-space-line-center" style="color:darkviolet; font-weight: bold;">Find Sample</h1>
+                        <h3 class="h4 pb-2 regular-400" style="color: blueviolet;">Visualize Drug Responses of Similar Cancer Samples</h3>
+                        <p class="banner-body pb-2 light-300" style="color: black;">
+                            Search for cell lines across the Cancer Cell Line Encyclopedia (CCLE; n = 704) or tumors of the Cancer Genome Atlas (TCGA; n = 9,059) that have similar genomic features to those of a query sample. Given mutation or gene expression data (or both) of a sample, our model calculates its similarity with samples in our database by the Jaccard index (mutations) and/or the Pearson correlation (expression). Drug responses are represented by IC50 (in log(uM)), where a more negative value denotes a stronger inhibitory effect. 
+                        </p>
+                        {{help_input2}}
+                    </div>
+                </div>
+      
+                <div class="row justify-content-center my-5">
+                    <div class="filter-btns shadow-md rounded-pill text-center col-auto">
+                        <a id="mutandexpbutton2" class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4 active" onclick="SwitchTo3(1)" >Mutation & Expression</a>
+                        <a id="mutbutton2" class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" onclick="SwitchTo3(2)" >Mutation</a>
+                        <a id="expbutton2" class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" onclick="SwitchTo3(3)" >Expression</a>
+                    </div>
+                </div>
+      
+                <div id="mutandexp2" class="row" style="margin: 0 auto; text-align: center;">
+                    <div class="section-title">
+                        <h2 style="font-size: 36px; color:blueviolet;"><b>Upload (human data only)</b></h2>
+                        <br>
+                    </div>
+                    <div style="width: 70%; height: 5px; background-color: blueviolet; margin: auto;">
+                    </div>
+                    <div class="row justify-content-center" style="padding-top: 2vh;">
+                        <div class="col-md-6">
+                            <h6 style="text-align: center;">Upload Mutation Data (MAF file)</h6>
+                            {{ mut_upload }}
+                        </div>
+                        <div class="col-md-6">
+                            <h6 style="text-align: center;">Upload Expression Data (txt file)</h6>
+                            {{ exp_upload }} 
+                        </div>   
+                    </div>
+                    <div class="row justify-content-center" style="padding-top: 2vh;">
+                        <div class="col-md-6">
+                            <h6 style="text-align: center;">Or Input a List of Mutated Genes</h6>
+                            {{ gene_list }}
+                        </div>
+                        <div class="col-md-6">
+                            <h6 style="text-align: center;">Select the Options below for Expression</h6>
+                            <div style="padding-top: 10%; font-family: 'Open Sans', sans-serif;">
+                                {{ exp_type }} 
+                            </div>
+                            <div style="padding-top: 5%; font-family: 'Open Sans', sans-serif;">
+                                {{ log_transform }}
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="row" style="text-align: center; font-family: 'Open Sans', sans-serif; padding-top: 3%;">
+                        <h6 style="text-align: center;">Select Sample Type</h6>
+                        {{ cell_type }}
+                    </div> 
+                </div>
+                
+                <div id="mut2" class="row" style="display: none; margin: 0 auto; text-align: center;">
+                    <div class="section-title">
+                        <h2 style="font-size: 36px; color:blueviolet;"><b>Upload (human data only)</b></h2>
+                    </div>
+                    <div style="width: 70%; height: 5px; background-color: blueviolet; margin: auto;">
+                    </div>
+                    <div class="row justify-content-center" style="padding-top: 2vh;">
+                        <div class="col-md-6">
+                            <h6 style="text-align: center;">Upload Mutation Data</h6>
+                            {{ mut_upload2 }}
+                        </div> 
+                    </div>
+                    <div class="row justify-content-center" style="padding-top: 2vh;">
+                        <div class="col-md-6">
+                            <h6 style="text-align: center;">Or Input a List of Mutated Genes</h6>
+                            {{ gene_list2 }}
+                        </div> 
+                    </div>
+                    <div class="row" style="text-align: center; font-family: 'Open Sans', sans-serif; padding-top: 3%;">
+                        <h6 style="text-align: center;">Select Sample Type</h6>
+                        {{ cell_type2 }}
+                    </div> 
+                </div>
+                <div id="exp2" class="row" style="display: none ; margin: 0 auto; text-align: center;">
+                    <div class="section-title">
+                        <h2 style="font-size: 36px; color:blueviolet;"><b>Upload (human data only)</b></h2>
+                    </div>
+                    <div style="width: 70%; height: 5px; background-color: blueviolet; margin: auto;">
+                    </div>
+                    <div class="row justify-content-center" style="padding-top: 2vh;">
+                        <div class="col-md-6">
+                            <h6 style="text-align: center;">Upload Expression Data (txt file)</h6>
+                            {{ exp_upload2 }} 
+                        </div>   
+                    </div>
+                    <div class="row justify-content-center" style="padding-top: 2vh;">
+                        <div class="col-md-6">
+                            <h6 style="text-align: center;">Select the Options below for Expression</h6>
+                            <div style="padding-top: 5%; font-family: 'Open Sans', sans-serif;">
+                                {{ exp_type2 }} 
+                            </div>
+                            <div style="padding-top: 5%; padding-bottom: 5%; font-family: 'Open Sans', sans-serif;">
+                                {{ log_transform2 }}
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="row" style="text-align: center; font-family: 'Open Sans', sans-serif; padding-top: 3%;">
+                        <h6 style="text-align: center;">Select Sample Type</h6>
+                        {{ cell_type3 }}
+                    </div> 
+                    <br>
+                </div>
+                    
+                    
+              </div>
+              <br>
+              <div id="model1n" class="row">
+                <div class="col-md-6" style="text-align: center;">
+                    {{ submitexample }}
+                </div> 
+                <div class="col-md-6" style="text-align: center;">
+                    {{ submitmodel }}
+                </div>    
+
+                <br>
+                <br>
+                </div> 
+                <div id="model2n" class="row" style="display: none;">    
+                    <div class="col-md-6" style="text-align: center;">
+                        {{ submitexample2 }}
+                    </div>
+                    <div class="col-md-6" style="text-align: center;">
+                        {{ submitmodel2 }}
+                    </div>      
+                  <br>
+                  <br>
+                  </div> 
+                  <div id="model3n" class="row" style="display: none;">    
+                    <div class="col-md-6" style="text-align: center;">
+                        {{ submitexample3 }}
+                    </div>
+                    <div class="col-md-6" style="text-align: center;">
+                        {{ submitmodel3 }}
+                    </div>       
+                      <br>
+                      <br>
+                      </div> 
+            <br>
+            <br>
+            </div>
+          </section>
+
+        <!--mutation and expression division display-->
+          <div id="mutandexpshow2">
+            <section class="bg-light py-5">
+                <div class="feature-work container my-4">
+                    <div class="row d-flex d-flex align-items-center">
+                        <div class="col-lg-12">
+                            <h3 class="feature-work-title h4 text-muted light-300">Results</h3>
+                            <h1 class="feature-work-heading h2 py-3 semi-bold-600">Mutation and Expression</h1>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </section>
+            <section class="bg-light">
+                <div class="container">
+                    <div class="row">
+                        <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 2-1</b>{{ nnboth1 }}</h2>
+                    </div>
+                    <h5>Similar cell lines/tumors to the query sample</h5>
+                    <div class="row" style="height: 500px; overflow-y: scroll;">
+                        {{ nn.table.both }}
+                    </div>
+                    <br>
+  
+                    <div class="row">
+                        <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 2-2</b>{{ nnboth3 }}</h2>
+                        
+                    </div>
+                    <h5>Network of similar samples and their top effective drugs.</h5>
+                    <div class="row" style="height: 500px;">  
+                        {{ nn.network.both }}
+                    </div>
+                    <br>
+          
+                  <br>
+                  <br>
+                </div>
+                  </section>
+        </div>
+        
+        <!--mutation division display-->
+        <div id="mutshow2" style="display: none;">
+            <section class="bg-light py-5">
+                <div class="feature-work container my-4">
+                    <div class="row d-flex d-flex align-items-center">
+                        <div class="col-lg-12">
+                            <h3 class="feature-work-title h4 text-muted light-300">Results</h3>
+                            <h1 class="feature-work-heading h2 py-3 semi-bold-600">Mutation Only</h1>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </section>
+            <section class="bg-light">
+                <div class="container">
+                    <div class="row">
+                        <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 2-1</b>{{ nnmut1 }}</h2>
+                        
+                    </div>
+                    <h5>Similar cell lines/tumors to the query sample</h5>
+                    <div class="row" style="height: 500px; overflow-y: scroll;">
+                        {{ nn.table.mut }}
+                    </div>
+                    <br>
+                    
+    
+                    <div class="row">
+                        <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 2-2</b>{{ nnmut3 }}</h2>
+                        
+                    </div>
+                    <h5>Network of similar samples and their top effective drugs.</h5>
+                    <div class="row" style="height: 500px;">  
+                        {{ nn.network.mut }}
+                    </div>
+                    <br>
+    
+          
+                  <br>
+                  <br>
+                </div>
+                  </section>
+        </div>
+        
+        <!--expression division display-->
+        <div id="expshow2" style="display: none;">
+            <section class="bg-light py-5">
+                <div class="feature-work container my-4">
+                    <div class="row d-flex d-flex align-items-center">
+                        <div class="col-lg-12">
+                            <h3 class="feature-work-title h4 text-muted light-300">Results</h3>
+                            <h1 class="feature-work-heading h2 py-3 semi-bold-600">Expression Only</h1>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+            </section>
+            <section class="bg-light">
+                <div class="container">
+                    <div class="row">
+                        <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 2-1</b>{{ nnexp1 }}</h2>
+                        
+                    </div>
+                    <h5>Similar cell lines/tumors to the query sample</h5>
+                    <div class="row" style="height: 500px; overflow-y: scroll;">
+                        {{ nn.table.exp }}
+                    </div>
+                    <br>
+                    
+    
+                    <div class="row">
+                        <h2 style="font-size: 36px; color:blueviolet;"><b>Panel 2-2</b>{{ nnexp3 }}</h2>
+                        
+                    </div>
+                    <h5>Network of similar samples and their top effective drugs.</h5>
+                    <div class="row" style="height: 500px;">  
+                        {{ nn.network.exp }}
+                    </div>
+                    <br>
+
+                  <br>
+                  <br>
+                </div>
+                  </section>
+            </div>
+
+        <footer id="footer" style="box-shadow: 0px 0px 10px 0px rgba(1, 1, 82, 0.4); display: flex;">
+            <div class="container d-md-flex" style="padding-top: 10px; padding-bottom: 3px;">
+                <div class="text-md-left" style="width: 50%; float: left;">
+                     <a href="https://www.chiu-lab.org/" target="_blank"> <img src="pitt_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"></a>
+
+                    <!-- <h4 style="font-size: 15px;">Greehey Children's Cancer Research Institute</h4> -->
+                </div>
+                
+                <div class="text-center" style="width: 110%;">
+                    <h4 style="font-size: 12px;"><strong>Citation:</strong> 
+                        <u>DeepDR model:</u> Chiu et al. Predicting drug response of tumors from integrated genomic profiles by deep neural networks. <a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank"><em>BMC Medical Genomics.</em></a> 2019.
+                     <u>Web Server:</u> Wang et al. shinyDeepDR: a user-friendly R Shiny app for predicting anti-cancer drug response using deep learning. In review. <u>Version: Feb. 2023</u>
+
+                     <h4 style="font-size: 12px; ">Contact:  <a href = "mailto:YUC250@pitt.edu">Yu-Chiao Chiu, Ph.D. </a> & <a href = "mailto:Cheny8@uthscsa.edu">Yidong Chen, Ph.D. </a> </h4>
+            
+                </div>
+                <div class="text-md-right" style="width: 50%; float: left; padding-left: 5%;">
+                    <a href="https://gccri.uthscsa.edu/lab/chen/" target="_blank"> <img src="uthsa_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"> </a>
+                 <!--<h4 style="font-size: 15px;">Pittsburgh University</h4> -->
+               </div>
+            </div>
+ 
+        </footer>
+        </div>
+        <!-- end of nearest neighbor page-->
+
+        <!-- About Page-->
+        <div id="aboutdiv" style="display: none;">
+
+            <header id="header" class="fixed-top d-flex align-items-center">
+               <div class="container d-flex align-items-center">
+               <div class="logo me-auto">
+                <h1><a href="#" onclick="SwitchTo(1)">shinyDeep</a><a href="#" style="color: blueviolet;">DR</a></h1>
+               </div>
+                   <nav id="navbar" class="navbar order-last order-lg-0 m-auto">
+                       <ul>
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(1)">Home</a>
+                        </li> 
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(3)">Find Drug</a>
+                        </li>  
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(2)">Find Sample</a>
+                        </li>
+                        <li class= "dropdown"><a href="#" style="text-decoration-line: underline; text-decoration-color: blueviolet; text-decoration-thickness: 0.5vh;"><span>Help</span><i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                              <li><a class="nav-link" href="#" onclick = "SwitchTo(4)">Overviews</a></li>
+                              <li>{{ helptab3p4}}</li>
+                              <li>{{ helptab2p4 }}</li>
+                              <li>{{ helptab1p4 }}</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#" onclick="SwitchTo(5)">About</a>
+                        </li>
+                       </ul>
+                       <i class="bi bi-list mobile-nav-toggle"></i>
+                   </nav>
+               </div>
+           </header>
+         
+        <section>
+            <br>
+            <div id="overview" class="container">
+            <h1 style="text-align: center; color: blueviolet;">Overview</h1>
+            <br>
+            <div style="width: 70%; height: 5px; background-color: navy; margin: auto;">
+            </div>
+            <br>
+            <p style="text-align: left;"><strong>DeepDR</strong> is a deep learning model that predicts drug sensitivity using mutation and/or gene expression profiles in a cancer sample (cell line or tumor) (<a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank">Chiu <em>et al</em>. <em>BMC Medical Genomics</em> 2019</a>).&nbsp;<strong>shinyDeepDR</strong> is an R Shiny app that provides a user-friendly interface to DeepDR with no requirement of programming skills. shinyDeepDR runs two main analysis modules with user's uploaded genomic data,&nbsp;<strong>Module 1: Find Dr</strong><strong>ug (core module)&nbsp;</strong>and <strong>Module 2: Find Sample</strong>. Here we provide an overview of our tool. For details regarding the input data format or each module, please visit corresponding help pages or click on the question mark at each input/output section.&nbsp;&nbsp;</p>
+        <p style="text-align:left;"><em> <u><strong>DeepDR: Deep Learning-Based Predictiion of drug response of tumors from integrated genomic profiles</strong></u></em></p>
+        <p style="text-align:left;"><em>  </em></p>
+          <p>Given a pair of mutation and expression profiles, DeepDR predicts IC50 values of 265 FDA-approved or investigational anti-cancer compounds. It contains three deep neural networks:</p>
+          <ul>
+            <li>A mutation encoder pre-trained using a large pan-cancer dataset (The Cancer Genome Atlas; TCGA) to abstract core representations of high-dimension mutation data</li>
+            <li>A pre-trained expression encoder</li>
+            <li>Drug response predictor network integrating the first two subnetworks.</li>
+          </ul>
+          <p> In the publication of DeepDR, we have systematically evaluated the prediction performance using  hold-out cancer cell lines by multiple measures, including mean squared error in drug response and per-cancer cell line correlation coefficients between real and predicted data (Pearson and Spearman correlation coefficients, 0.70-0.96 and 0.62-0.95, respectively). DeepDR achieved marked improvement over conventional methods, including linear regression, support vector machine, and alternative deep learning models trained either with cell lines alone without transferring features learned from tumors, or using principal components to replace encoder outputs. Furthermore, we validated the predictions by real-world clinical data of corresponding patients, such as an approved estrogen receptor agonist (tamoxifen) for breast cancer, approved drugs targeting the EGFR mutations (afatinib and gefitinib) for non-small cell lung cancer, and an investigational compound, CX-5461, for treating hematopoietic malignancies. Please refer to the publication of DeepDR (<a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank">Chiu <em>et al</em>. <em>BMC Medical Genomics</em> 2019</a>) for more details regarding model design, validation, and applications.</p>
+          <p>We also built mutation-alone and expression alone models for sampls with only one omics data available.&nbsp; &nbsp;</p>
+        <p>&nbsp;</p>
+        <div class="row">
+            <img src="DeepDR_overview.png" alt="DeepDR_overview" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" height="800">
+        </div>
+          <p>&nbsp;</p>
+		<p style="text-align:left;"><em> <u><strong>shinyDeepDR: Implementation of DeepDR by a User-Friendly R Shiny Framework</strong></u></em></p>
+				   
+        <p style="text-align:left;"><em><strong>Module 1: Find Drug</strong> that is predicted to be effective in inhibiting the query sample</em></p>
+<p style="text-align: left;">Module 1 runs DeepDR to predict the query sample’s response to 265 anti-cancer compounds. The app provides an intuitive user interface to interactively visualize, search, and filter all prediction results, as well as detailed annotations&nbsp;of&nbsp;individual compounds.&nbsp;</p>
+  <p style="text-align:left;"><em><strong>Module 2: Find Sample </strong>that shares similar genomic features to the query sample </em></p>
+  <p style="text-align: left;">Module 2 searches for cell lines in the CCLE or tumors of TCGA that have similar genomic features to those of the query sample and examines their real or predicted drug responses. We incorporated real drug response data of pan-cancer cell lines from the Genomics of Drug Sensitivity in Cancer (GDSC; 265 compounds x 704 cell lines) and prediction by&nbsp;our DeepDR model, as well as predicted drug responses  of pan-cancer tumors from our publication of DeepDR (265 compounds x 9,059 tumors).</p>
+	  <p style="text-align:left;"></p>
+  <img src="shinyDeepDR_overview.png" alt="shinyDeepDR_overview" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" height="500">
+            <hr>
+        </div>
+    </section>
+   
+           <footer id="footer" style="box-shadow: 0px 0px 10px 0px rgba(1, 1, 82, 0.4); display: flex;">
+            <div class="container d-md-flex" style="padding-top: 10px; padding-bottom: 3px;">
+                <div class="text-md-left" style="width: 50%; float: left;">
+                    <a href="https://www.chiu-lab.org/" target="_blank"> <img src="pitt_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"></a>
+                    
+
+                        <!-- <h4 style="font-size: 15px;">Greehey Children's Cancer Research Institute</h4> -->
+                </div>
+                
+                <div class="text-center" style="width: 110%;">
+                    <h4 style="font-size: 12px;"><strong>Citation:</strong> 
+                        <u>DeepDR model:</u> Chiu et al. Predicting drug response of tumors from integrated genomic profiles by deep neural networks. <a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank"><em>BMC Medical Genomics.</em></a> 2019.
+                     <u>Web Server:</u> Wang et al. shinyDeepDR: a user-friendly R Shiny app for predicting anti-cancer drug response using deep learning. In review. <u>Version: Feb. 2023</u>
+
+                     <h4 style="font-size: 12px; ">Contact:  <a href = "mailto:YUC250@pitt.edu">Yu-Chiao Chiu, Ph.D. </a> & <a href = "mailto:Cheny8@uthscsa.edu">Yidong Chen, Ph.D. </a> </h4>
+            
+                </div>
+                <div class="text-md-right" style="width: 50%; float: left; padding-left: 5%;">
+                <a href="https://gccri.uthscsa.edu/lab/chen/" target="_blank"> <img src="uthsa_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"> </a>
+                 <!--<h4 style="font-size: 15px;">Pittsburgh University</h4> -->
+               </div>
+            </div>
+ 
+        </footer>
+        
+           </div>
+           <!-- End of About Page-->
+
+        <!-- Contact Page-->
+        <div id="contactdiv" style="display: none;">
+
+            <header id="header" class="fixed-top d-flex align-items-center">
+                <div class="container d-flex align-items-center">
+                <div class="logo me-auto">
+                    <h1><a href="#" onclick="SwitchTo(1)">shinyDeep</a><a href="#" style="color: blueviolet;">DR</a></h1>
+                </div>
+                    <nav id="navbar" class="navbar order-last order-lg-0 m-auto">
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="#" onclick="SwitchTo(1)">Home</a>
+                            </li> 
+                            <li>
+                                <a class="nav-link" href="#" onclick="SwitchTo(3)">Find Drug</a>
+                            </li> 
+                            <li>
+                                <a class="nav-link" href="#" onclick="SwitchTo(2)">Find Sample</a>
+                            </li>
+                            <li class= "dropdown"><a href="#"><span>Help</span><i class="bi bi-chevron-down"></i></a>
+                                <ul>
+                                  <li><a class="nav-link" href="#" onclick = "SwitchTo(4)">Overviews</a></li>
+                                  <li>{{ helptab3p5 }}</li>
+                                  <li>{{ helptab2p5 }}</li>
+                                  <li>{{ helptab1p5 }}</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#" onclick="SwitchTo(5)" style="text-decoration-line: underline; text-decoration-color: blueviolet; text-decoration-thickness: 0.5vh;">About</a>
+                            </li>
+                        </ul>
+                        <i class="bi bi-list mobile-nav-toggle"></i>
+                    </nav>
+                </div>
+            </header>
+            
+            <br>
+            <br>
+            <section id="contact" class="contact section-bg" style="height: 130vh;">
+				<div class="container">
+                <div class="section-title">
+                    <h2>Contact Our Team</h2>
+                    <p>If you have any questions or comments about shinyDeepDR, please contact:</p>
+                </div>
+        
+                <div class="row mt-5 justify-content-center">
+        
+                    <div class="col-lg-10">
+        
+                    <div class="info-wrap">
+                        <div class="row">
+                        <div class="col-lg-6 info">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Location:</h4>
+                            <p>UPMC Hillman Cancer Center<br>5051 Centre Avenue, Pittsburgh, PA 15213</p>
+
+                        </div>
+        
+                        <div class="col-lg-6 info mt-4 mt-lg-0">
+                            <i class="bi bi-envelope"></i>
+                            <h4>Emails:</h4>
+                             <p><a href = "mailto:YUC250@pitt.edu">Yu-Chiao Chiu, Ph.D. </a></p>
+                            <p> <a href = "mailto:Cheny8@uthscsa.edu">Yidong Chen, Ph.D. </a></p>
+                           
+                        </div>
+                        </div>
+                    </div>
+        
+                    </div>
+        
+                </div>
+                <br>
+                <div class="section-title">
+                    <h2>Acknowledgment</h2>
+                </div>
+                 <div class="container row-clos-3 justify-content-between" style="padding-top: 15px; width:auto;"> 
+                      <a href="https://www.cancer.gov/" target="_blank"> <img src="sponsors/NCI.jpeg" style="width:300px;"></a>
+                       <a href="https://www.upmc.com/" target="_blank"> <img src="sponsors/cancercenterlogo.png" style="width:300px;"></a>
+                      <a href="https://livercenter.pitt.edu/" target="_blank"> <img src="sponsors/PLRC_Site_Icon.png" style="width:300px;"></a>
+                       <a href="https://www.the-ici-fund.org/" target="_blank"> <img src="sponsors/ICI.png" style="width:300px;"></a>
+                     
+                        
+
+                        </div>
+					 </div>
+                    
+     
+
+
+            </section>
+            <footer id="footer" style="box-shadow: 0px 0px 10px 0px rgba(1, 1, 82, 0.4); display: flex;">
+                <div class="container d-md-flex" style="padding-top: 10px; padding-bottom: 3px;">
+                    <div class="text-md-left" style="width: 50%; float: left;">
+                        <a href="https://www.chiu-lab.org/" target="_blank"> <img src="pitt_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"></a>
+                        <!-- <h4 style="font-size: 15px;">Greehey Children's Cancer Research Institute</h4> -->
+                </div>
+                
+                <div class="text-center" style="width: 110%;">
+                    <h4 style="font-size: 12px;"><strong>Citation:</strong>
+                        <u>DeepDR model:</u> Chiu et al. Predicting drug response of tumors from integrated genomic profiles by deep neural networks. <a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank"><em>BMC Medical Genomics.</em></a> 2019.
+                     <u>Web Server:</u> Wang et al. shinyDeepDR: a user-friendly R Shiny app for predicting anti-cancer drug response using deep learning. In review. <u>Version: Feb. 2023</u>
+
+                     <h4 style="font-size: 12px; ">Contact:  <a href = "mailto:YUC250@pitt.edu">Yu-Chiao Chiu, Ph.D. </a> & <a href = "mailto:Cheny8@uthscsa.edu">Yidong Chen, Ph.D. </a> </h4>
+            
+                </div>
+                <div class="text-md-right" style="width: 50%; float: left; padding-left: 5%;">
+                    <a href="https://gccri.uthscsa.edu/lab/chen/" target="_blank"> <img src="uthsa_logo.png" style="width:200px; height: 50px; object-fit: contain; padding-top: 5px;"> </a>
+                 <!--<h4 style="font-size: 15px;">Pittsburgh University</h4> -->
+               </div>
+                </div>
+     
+            </footer>
+        </div>
+
+        <div id="privacybanner" class="cookies-eu-banner" style="background: mediumslateblue;"> <h6>shinyDeepDR is free and open to all users and there is no login requirement. This tool is for Research Use Only. Accessing this site means you agree to our {{privacytag1}}</h6>
+            <button onclick="Consent()"><h6>Got it!</h6></button>
+        </div>
+       
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/vendor/purecounter/purecounter.js"></script>
+    </body>
+    
+</html>

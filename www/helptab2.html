@@ -1,0 +1,31 @@
+<div id="helptab1">
+    <h1 style="text-align: center;">Find Drug</h1>
+    <hr />
+  <p style="text-align: left;"><strong>Module 1 (Find Drug): Finding drugs that are predicted to inhibit  a query sample</strong></p>
+  <p style="text-align: left;"><strong>Module 1</strong> uses DeepDR to predict the query sample's response to 265 FDA-approved or investigational anti-cancer compounds. To start  the analysis, the user should upload the genomic data of the query sample (<strong>mutations alone, expression alone, or mutations plus expression</strong>), and&nbsp;select the sample type to analyze (cell line: CCLE; tumor: TCGA). After specifying the file location(s), the user should click on the purple  button <font color="purple"> <strong>[SUBMIT]</strong></font> to start the analysis. Alternatively, the user can test our tool using a built-in example sample by simply clicking on the blue icon <font color="blue"> <strong>[RUN EXAMPLE]</strong></font>.</p>
+        
+       <p style="text-align:left;"><em> <u><strong>Input Data Format</strong></u> </em></p>
+    <p> Please visit the "Input Data Format" help page for detailed information regarding data preparation and downloading example files.</p>
+        
+<p style="text-align:left;"><em><u> <strong>Running DeepDR Prediction</strong></u></em></p>
+
+  We implemented three versions of DeepDR that take different sets of omics data:
+  <ul><li><strong>Mutation + expression (recommended):</strong> Original DeepDR model that integrates mutations and gene expression to predict the cancer sample's response (measured by IC50 values) to 265 compounds. This model was used to derive all major findings from the DeepDR publication (<a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank">Chiu <em>et al</em>. <em>BMC Medical Genomics</em> 2019</a>). The model achieved better performance (per-sample correlation) than alternatively models built on single omics.&nbsp;Per-drug performance in testing samples are provided with our tool output. </li>
+	<li><strong>Mutation alone:</strong> Alternative DeepDR model that takes only gene mutation data. The model was constructed by removing the expression component (i.e., encoder) from DeepDR, with all other training parameters being the same.  Per-drug performance in testing samples are provided with our tool output.</li>
+	  <li><strong>Expression alone:</strong> Alternative DeepDR model that takes only gene expression data. The model was constructed by removing the mutation component (i.e., encoder) from DeepDR, with all other training parameters being the same. Per-drug performance in testing samples are provided with our tool output.</li>
+</ul>
+	
+<p style="text-align:left;"><em><u> <strong>Outputs</strong></u></em></p>
+	<ul>
+<li><strong>Panel 1-1:</strong> Predicted IC50 values of 265 anti-cancer compounds (in the log[uM] scale), reference ranges&nbsp;of real and/or predicted IC50 values across all cell lines/tumors,&nbsp;target genes, mechanisms of action, canonical SMILES (Simplified Molecular-Input Line-Entry System), and PubChem CID and annotation of 265 anti-cancer drugs.</li>
+	  <li><strong>Panel 1-2:</strong> Waterfall plot of predicted IC50 values across 265 compounds. </li>
+	  <li><strong>Panel 1-3:</strong> 2D structure of the compound selected from <strong>Panel 1-1</strong> and annotations.</li>
+	  <li><strong>Panel 1-4:</strong> Density plot of predicted and/or real IC50 values of the selected drug across all cell lines/tumors, in comparison to that of the query sample. The plot demonstrates how the query sample compares to all other samples.</li>
+	  <li><strong>Panel 1-5:</strong> Box plot of predicted and/or real IC50 values of the selected drug across different cancer types, in comparison to that of the query sample. The plot demonstrates how the query sample compares to samples of different cancer types.</li>
+		<li><strong>Panel 1-6:</strong> &nbsp;Extension of <strong>Panel 1-5&nbsp;</strong>to study different  subtypes of a selected cancer type. In the current version, we incorporate subtype information only for cancer cell lines  (not for tumors).</li>
+	  <li><strong>Panel 1-7:</strong> &nbsp;Sample-drug association network to visualize  the most effective drugs of the top similar CCLE or TCGA samples to the query sample.</li>
+	  <p></p>
+	  Please click on the question mark of each figure and table to see the legends.
+  
+<hr>
+</div>

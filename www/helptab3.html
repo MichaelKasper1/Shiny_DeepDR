@@ -1,0 +1,32 @@
+<div id="helptab1">
+    <h1 style="text-align: center;">Input Data Format</h1>
+    <hr />
+  <p style="text-align:left;"><em> <u><strong>Inputs</strong> </u> </em></p>
+  <ul>
+	<li><strong>Genomic data of the query sample:</strong> mutations alone, gene expression alone, and mutation plus gene expression. The input genomic data are analyzed for  drug response prediction (Module 1) and similar samples (Module 2).&nbsp;</li>
+	<li><strong>Sample type of the query sample: </strong>cell line or tumor.&nbsp;Sample type  determines which  database is used to generate reference ranges for prediction results (cell line: Cancer Cell Line Encyclopedia [CCLE]; tumor: The Cancer Genome Atlas [TCGA]) and to search for similar samples.&nbsp;&nbsp;</li>
+	  <li><strong>Data type (gene expression): </strong>FPKM or TPM.&nbsp;&nbsp;</li>
+	  <li><strong>Log Transformed (gene expression): </strong>Whether the input data are already transformed to the log2(data+1) scale.</li>
+  </ul>
+       
+   <p style="text-align:left;"><em> <u><strong>Genomics Data Format</strong></u> </em></p>
+    <p> shinyDeepDR accommodates  common file formats for gene mutations and expression data:&nbsp;</p>
+  <p> <strong><em>Mutations:</em></strong> </p>
+    
+  <ul><li><strong>Mutation Annotation Format (MAF) file:</strong> We recommend following the maf format of cBioPortal or TCGA that contains three columns under the column name of "Hugo_Symbol", "Variant_Classification", and "Tumor_Sample_Barcode". Our tool internally filters and only uses four&nbsp; types&nbsp;of nonsynonymous mutations, including "Missense_Mutation", "Nonsense_Mutation", "Frame_Shift_Ins", and "Frame_Shift_Del", which are used for DeepDR (<a href="https://bmcmedgenomics.biomedcentral.com/articles/10.1186/s12920-018-0460-9" target="_blank">Chiu <em>et al</em>. <em>BMC Medical Genomics</em> 2019</a>).</li>
+    
+	<li><strong> Copy and paste the gene symbols carrying mutation in the text box:</strong> Please make sure to include only genes carrying the aforementioned <strong>four types of mutations</strong>: missense and nonsense mutations, and frameshift insertions and deletions, as they are the mutations that DeepDR was trained with.</li>
+	<p>Given either type of input, our tool extracts data of 18,281 genes that are used by DeepDR. Unmapped genes are imputed by the median value (e.g., 0 or 1) across the 622 cell lines used for constructing the DeepDR models. </p>
+</ul>
+	
+	     <strong><em>Gene Expression</em></strong>:
+	  <ul><li><strong>txt file:</strong> The txt file should contain only <strong>two columns</strong>, with the first and second columns denoting gene symbols and expression levels (TPM or FPKM values; raw data scale or log2(data+1)), respectively. The txt file should contain a header. Since DeepDR is built with log2(TPM+1) values, we provide a conversion of FPKM values   to TPM, as well as conversion to the log2(data+1) scale. For the quantification of gene expression, we strongly recommend to use the <a href="https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/#mrna-expression-workflow" target="_blank"> TCGA GDC pipeline</a> &nbsp;"mRNA Expression Workflow" with the "Original" setting that utilizes the GENCODE v22 annotation to minimize the number of unmapped genes   DeepDR.</li>
+	  <p>After the txt file is uploaded, our tool extracts data of 15,363 genes that are used by DeepDR. Unmapped genes are imputed by the median value across the 622 cell lines used for constructing the DeepDR models.</p>
+  </ul>
+	
+	
+	 <strong><em>Example files</em></strong>:
+  <p>Example files used for&nbsp; <font color="blue"> <strong>[RUN EXAMPLE]&nbsp;</strong></font> can be downloaded <a href="https://pitt-my.sharepoint.com/:f:/g/personal/yuc250_pitt_edu/EqeoHOrfooJJp01F-30w9FgBLQ72d2AhVefcfq_kZm9hdw?e=rDONmd" target="_blank">here</a>.</p>
+  </ul>
+	
+</div>
