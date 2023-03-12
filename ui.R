@@ -73,34 +73,34 @@ ui <- htmlTemplate(
   # Figure1-3: nn.network.q
   nnboth1 = circleButton(
     inputId = "nnboth1",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   nnboth3 = circleButton(
     inputId = "nnboth3",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   
   nnmut1 = circleButton(
     inputId = "nnmut1",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   nnmut3 = circleButton(
     inputId = "nnmut3",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   
   nnexp1 = circleButton(
     inputId = "nnexp1",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   nnexp3 = circleButton(
     inputId = "nnexp3",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   helptab3p1 = actionLink(inputId = "helptab3p1", label = "Input Data Format"),
@@ -138,113 +138,113 @@ ui <- htmlTemplate(
   
   pdboth1 = circleButton(
     inputId = "pdboth1",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdboth2 = circleButton(
     inputId = "pdboth2",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdboth3 = circleButton(
     inputId = "pdboth3",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdboth5 = circleButton(
     inputId = "pdboth5",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdboth6 = circleButton(
     inputId = "pdboth6",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   
   #NEW MODAL
   pdboth6sub = circleButton(
     inputId = "pdboth6sub",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdboth7 = circleButton(
     inputId = "pdboth7",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   
   pdmut1 = circleButton(
     inputId = "pdmut1",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdmut2 = circleButton(
     inputId = "pdmut2",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdmut3 = circleButton(
     inputId = "pdmut3",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdmut5 = circleButton(
     inputId = "pdmut5",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdmut6 = circleButton(
     inputId = "pdmut6",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   #NEW MODAL
   pdmut6sub = circleButton(
     inputId = "pdmut6sub",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdmut7 = circleButton(
     inputId = "pdmut7",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   
   pdexp1 = circleButton(
     inputId = "pdexp1",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdexp2 = circleButton(
     inputId = "pdexp2",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdexp3 = circleButton(
     inputId = "pdexp3",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdexp5 = circleButton(
     inputId = "pdexp5",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdexp6 = circleButton(
     inputId = "pdexp6",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   #NEW MODAL
   pdexp6sub = circleButton(
     inputId = "pdexp6sub",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   pdexp7 = circleButton(
     inputId = "pdexp7",
-    icon = icon("question"),
+    icon = icon("circle-question"),
     style = "color:darkblue; margin-bottom: 0.9vh;"
   ),
   
